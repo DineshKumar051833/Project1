@@ -1,0 +1,227 @@
+<!--
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<style>
+    .car2{
+        position: absolute;
+        left: 26%;
+        top: 12%;
+    }
+
+    .car3{
+        position: absolute;
+        left: 53%;
+        top: 21%;
+    }
+
+    .car4{
+        position: absolute;
+        left: 77%;
+        top: 21%;
+    }
+    i{
+        font-size: 20px;
+    }
+    button{
+        color: royalblue;
+    }
+    .visit{
+        text-align: center;
+    }
+    button{
+        font-size: 15px;
+    }
+</style>
+<body>
+<h1 style="text-align: center">HOME</h1> <hr>
+<div class="car1">
+    <img src="https://i.pinimg.com/736x/4a/1e/20/4a1e203b20a6983f5b08977a56250f8c.jpg" height="380px" width="320px">
+    <br> <i>The Car-1</i> <br>
+    <button>Add to Cart</button>
+</div>
+<div class="car2">
+    <img src="https://i.pinimg.com/736x/fe/e6/ee/fee6eea7b191112a744e2bf23a277871.jpg" height="380px" width="390px">
+    <br> <i>The Car-2</i> <br>
+    <button>Add to Cart</button>
+</div>
+<div class="car3">
+    <img src="https://i.pinimg.com/736x/3f/3b/1d/3f3b1db59ac0c4c8c2353228b5140d12.jpg" height="300px" width="350px">
+    <br> <i>The Car-3</i> <br>
+    <button>Add to Cart</button>
+</div>
+<div class="car4">
+    <img src="https://i.pinimg.com/736x/06/a4/19/06a419ce0f4ffea11529ca04fba34865.jpg" height="300px" width="350px">
+    <br> <i>The Car-4</i> <br>
+    <button>Add to Cart</button>
+</div> <hr>
+<div class="visit">
+    <h2>To See More Cars Visit Our Site</h2>
+    <a th:href="@{/login}"> <button>Login</button></a>
+    <a th:href="@{/signup}"> <button>Signup</button></a>
+    <a th:href="@{/viewcart}"> <button>View Cart</button></a>
+</div>
+</body>
+</html>-->
+
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            color: #444;
+        }
+
+        hr {
+            border: none;
+            height: 3px;
+            background-color: #444;
+            margin: 20px 0;
+        }
+
+        .car-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        .car {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            width: 280px;
+            margin: 10px;
+            padding: 15px;
+            transition: transform 0.2s;
+        }
+
+        .car:hover {
+            transform: scale(1.05);
+        }
+
+        .car img {
+            width: 100%;
+            height: 250px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        .car i {
+            display: block;
+            font-size: 18px;
+            margin-top: 10px;
+            color: #555;
+        }
+
+        .car button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .car button:hover {
+            background-color: #0056b3;
+        }
+
+        .visit {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin: 20px auto;
+            width: 80%;
+        }
+
+        .visit h2 {
+            margin-bottom: 20px;
+        }
+
+        .visit a button {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .visit a button:hover {
+            background-color: #218838;
+        }
+
+        .visit a button:active {
+            transform: scale(0.98);
+        }
+    </style>
+</head>
+<body>
+
+<h1>HOME</h1>
+<hr>
+
+<div class="car-container">
+    <div class="car">
+        <img src="https://i.pinimg.com/736x/4a/1e/20/4a1e203b20a6983f5b08977a56250f8c.jpg" alt="The Car-1">
+        <i>The Car-1</i>
+        <button>Add to Cart</button>
+    </div>
+    <div class="car">
+        <img src="https://i.pinimg.com/736x/fe/e6/ee/fee6eea7b191112a744e2bf23a277871.jpg" alt="The Car-2">
+        <i>The Car-2</i>
+        <button>Add to Cart</button>
+    </div>
+    <div class="car">
+        <img src="https://i.pinimg.com/736x/3f/3b/1d/3f3b1db59ac0c4c8c2353228b5140d12.jpg" alt="The Car-3">
+        <i>The Car-3</i>
+        <button>Add to Cart</button>
+    </div>
+    <div class="car">
+        <img src="https://i.pinimg.com/736x/06/a4/19/06a419ce0f4ffea11529ca04fba34865.jpg" alt="The Car-4">
+        <i>The Car-4</i>
+        <button>Add to Cart</button>
+    </div>
+</div>
+
+<hr>
+
+<div class="visit">
+    <h2>To See More Cars Visit Our Site</h2>
+    <a th:href="@{/login}"><button>Login</button></a>
+    <a th:href="@{/signup}"><button>Signup</button></a>
+    <a th:href="@{/viewcart}"><button>View Cart</button></a>
+</div>
+
+</body>
+</html>
+

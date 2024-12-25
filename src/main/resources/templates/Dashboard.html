@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dash Board</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1e1e2f;
+            color: #f0f0f0;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            color: #ff6347;
+        }
+
+        hr {
+            border: none;
+            height: 4px;
+            background-color: #ff6347;
+            margin: 20px 0;
+        }
+
+        .car-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        .car {
+            background-color: #2b2b3d;
+            border-radius: 16px;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+            width: 250px;
+            margin: 20px;
+        }
+
+        .car:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .car img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 4px solid #ff6347;
+        }
+
+        .car i {
+            display: block;
+            font-size: 20px;
+            margin-top: 10px;
+            color: #f0f0f0;
+        }
+
+        .car a button {
+            background-color: #ff6347;
+            color: #fff;
+            border: none;
+            border-radius: 30px;
+            padding: 10px 30px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 15px 0;
+            transition: background-color 0.3s ease;
+        }
+
+        .car a button:hover {
+            background-color: #e5533d;
+        }
+
+        .visit {
+            text-align: center;
+            background-color: #2b2b3d;
+            padding: 20px;
+            border-radius: 16px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            margin: 20px auto;
+            width: 90%;
+        }
+
+        .visit a button {
+            background-color: #32cd32;
+            color: #fff;
+            border: none;
+            border-radius: 30px;
+            padding: 10px 30px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .visit a button:hover {
+            background-color: #28a428;
+        }
+
+        .visit a button:active {
+            transform: scale(0.98);
+        }
+    </style>
+</head>
+<body>
+
+<h1>HOME</h1>
+<hr>
+
+<div class="car-container">
+    <div class="car">
+        <img src="https://i.pinimg.com/736x/4a/1e/20/4a1e203b20a6983f5b08977a56250f8c.jpg" alt="The Car-1">
+        <i>The Car-1</i>
+        <a th:href="@{/add/{carid}(carid=1)}"><button>Add to Cart</button></a>
+    </div>
+    <div class="car">
+        <img src="https://i.pinimg.com/736x/fe/e6/ee/fee6eea7b191112a744e2bf23a277871.jpg" alt="The Car-2">
+        <i>The Car-2</i>
+        <a th:href="@{/add/{carid}(carid=2)}"><button>Add to Cart</button></a>
+    </div>
+    <div class="car">
+        <img src="https://i.pinimg.com/736x/3f/3b/1d/3f3b1db59ac0c4c8c2353228b5140d12.jpg" alt="The Car-3">
+        <i>The Car-3</i>
+        <a th:href="@{/add/{carid}(carid=3)}"><button>Add to Cart</button></a>
+    </div>
+    <div class="car">
+        <img src="https://i.pinimg.com/736x/06/a4/19/06a419ce0f4ffea11529ca04fba34865.jpg" alt="The Car-4">
+        <i>The Car-4</i>
+        <a th:href="@{/add/{carid}(carid=4)}"><button>Add to Cart</button></a>
+    </div>
+</div>
+
+<hr>
+
+<div class="visit">
+    <a th:href="@{/view}"><button>View Cart</button></a>
+    <a th:href="@{/home}"><button>Logout</button></a>
+</div>
+
+</body>
+</html>
