@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        h3 {
+            text-align: center;
+            color: #333;
+            margin-top: 30px;
+            font-size: 1.8em;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            max-width: 400px;
+            margin: 20px auto;
+        }
+
+        li {
+            background-color: #fff;
+            margin-bottom: 10px;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        li span {
+            font-size: 1.2em;
+            color: #555;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 20px auto;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="text"] {
+            flex-grow: 1;
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            margin-left: 10px;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        .delete-button {
+            background-color: #ff4d00;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .delete-button:hover {
+            background-color: darkred;
+        }
+
+        li div {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        @media (max-width: 600px) {
+            form {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            button {
+                margin-top: 10px;
+                width: 100%;
+            }
+
+            a{
+                color: #ff4d00;
+                margin-left: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<h3>Welcome <span th:text="${name}"></span></h3>
+<ul>
+    <li th:each="task : ${tasks}">
+        <div>
+            <span th:text="${task.getDescription()}"></span>
+            <form th:action="@{/deleteTask}" method="post" style="margin: 0; padding: 0; display: inline-block">
+                <input type="hidden" name="taskId" th:value="${task.getId()}"/>
+                <button type="submit" class="delete-button">Delete</button>
+            </form>
+        </div>
+    </li>
+</ul>
+
+<form method="post" th:action="@{/task}">
+    <input type="text" placeholder="Enter task" name="description">
+    <button type="submit" value="add">Add Task</button>
+</form>
+</body>
+</html>
